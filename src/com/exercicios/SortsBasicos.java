@@ -6,7 +6,7 @@ class SortsBasicos {
   static void bubbleCresc(String[] nomes, int[] salarios) {
     int i =0 , j, aux;
     boolean troca = true;
-    String aux2;
+    String temp;
 
     while (i < nomes.length && troca) {
       troca = false;
@@ -17,9 +17,9 @@ class SortsBasicos {
           salarios[j] = salarios[j + 1];
           salarios[j + 1] = aux;
 
-          aux2 = nomes[j];
+          temp = nomes[j];
           nomes[j] = nomes[j + 1];
-          nomes[j + 1] = aux2;
+          nomes[j + 1] = temp;
         }
       }
       i++;
@@ -35,7 +35,7 @@ class SortsBasicos {
   static void bubbleDesc(String[] nomes, int[] salarios) {
     int i = 0, j, aux;
     boolean troca = true;
-    String aux2;
+    String temp;
 
     while (i < nomes.length && troca) {
       troca = false;
@@ -47,9 +47,9 @@ class SortsBasicos {
           salarios[j] = salarios[j + 1];
           salarios[j + 1] = aux;
 
-          aux2 = nomes[j];
+          temp = nomes[j];
           nomes[j] = nomes[j + 1];
-          nomes[j + 1] = aux2;
+          nomes[j + 1] = temp;
         }
       }
       i++;
