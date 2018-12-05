@@ -3,6 +3,7 @@ package com.exercicios;
 import java.util.Scanner;
 
 class SortsBasicos {
+  //Inicio Numero 1
   static void bubbleCresc(String[] nomes, int[] salarios) {
     int i =0 , j, aux;
     boolean troca = true;
@@ -92,6 +93,79 @@ class SortsBasicos {
     for (i = 0; i < nomes.length; i++) {
       System.out.println("Func: " + nomes[i]);
       System.out.println("Salario: " + salarios[i]);
+    }
+  }//fim Numero 1
+
+  //inicio Numero 2
+  static void contMaiorMenor(int[] numeros) {
+    int i, posmaior, posmenor, quantmaior = 0, quantmenor = 0;
+
+    int maior = numeros[1], menor = numeros[1], eleito = numeros[0];
+
+    for (i = 2; i < (numeros.length - 1); i++) {
+      if (numeros[i] > maior) {
+        maior = numeros[i];
+        posmaior = i;
+      }
+
+      if (numeros[i] < menor) {
+        menor = numeros[i];
+        posmenor = i;
+      }
+    }
+
+    if (eleito > maior) {
+      maior = eleito;
+    }
+
+    if (eleito < menor) {
+      menor = eleito;
+    }
+
+    for (i = 0; i < numeros.length; i++) {
+      if (numeros[i] == maior) {
+        quantmaior++;
+      }
+      if (numeros[i] == menor){
+        quantmenor++;
+      }
+    }
+
+    System.out.println("Maior numero: " + maior + ", que aparece " + quantmaior + " vezes");
+    System.out.println("Menor numero: " + menor + ", que aparece " + quantmenor + " vezes");
+  }//fim do Numero 2
+
+  //inicio do numero 3
+  static void ordenarTudo(int[] codigo, String[] descricao, float[] preco) {
+    int i = 0, j, k, auxcod;
+    boolean troca = true;
+    String auxdesc;
+    float auxpreco;
+
+    while (i < codigo.length && troca) {
+      troca = false;
+
+      for (j = 0; j < (codigo.length - 1); j++) {
+        if (codigo[j] > codigo[j + 1]) {
+          troca = true;
+          auxcod = codigo[j];
+          codigo[j] = codigo[j + 1];
+          codigo[j + 1] = auxcod;
+
+          auxdesc = descricao[j];
+          descricao[j] = descricao[j + 1];
+          descricao[j + 1] = auxdesc;
+
+          auxpreco = preco[j];
+          preco[j] = preco[j + 1];
+          preco[j + 1] = auxpreco;
+        }
+      }
+      i++;
+    }
+    System.out.println("Ordenado por codigo: ");
+    for (k = 0; k < codigo.length; k++) {
+      System.out.println(" " + codigo[k] + descricao[k] + preco [k]);
     }
   }
 }
