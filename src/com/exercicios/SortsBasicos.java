@@ -165,7 +165,48 @@ class SortsBasicos {
     }
     System.out.println("Ordenado por codigo: ");
     for (k = 0; k < codigo.length; k++) {
-      System.out.println(" " + codigo[k] + descricao[k] + preco [k]);
+      System.out.println(" " + codigo[k] + " " + descricao[k] + " " + preco [k]);
     }
   }
+
+  static void buscaBin(int codigoprod, int[] codigo, String[] descricao, float[] preco) {
+    int meio, posencontrado = -1, inicio = 0, fim = (codigo.length - 1), cont = 0;
+    while (inicio <= fim) {
+      meio = (inicio + fim) / 2;
+      if (codigoprod == codigo[meio]) {
+        posencontrado = meio;
+      }
+      if (codigoprod < codigo[meio]) {
+        fim = meio - 1;
+      } else {
+        inicio = meio + 1;
+      }
+      cont++;
+    }
+
+    if (posencontrado > -1) {
+      System.out.println("Busca Binaria encontrou o codigo com as informacoes: " + codigo[posencontrado] + " "  + descricao[posencontrado] + " " + preco[posencontrado]);
+      System.out.println("Busca Binaria foi executada: " + cont + " vezes");
+    } else {
+      System.out.println("Codigo nao encontrado");
+    }
+
+  }
+
+  static void buscaSeq(int codigoprod, int[] codigo, String[] descricao, float[] preco) {
+    int indice = -1, cont = 0;
+    for (int i = 0; i < codigo.length; i++) {
+      if (codigo[i] == codigoprod) {
+        cont++;
+        indice = i;
+        break;
+      }
+    }
+    if (indice < 0) {
+      System.out.println("Codigo nao encontrado");
+    } else {
+      System.out.println("Busca Sequencial encontrou o codigo com as informacoes: " + codigo[indice] + descricao[indice] + preco[indice]);
+      System.out.println("Busca sequencial foi executada " + cont + "vezes ");
+    }
+  } // fim exercicio 3
 }
