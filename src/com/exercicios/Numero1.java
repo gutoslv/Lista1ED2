@@ -1,5 +1,12 @@
 package com.exercicios;
 
+/* Feito por
+
+Augusto Cesar da Silva - Prontuário: 1620011
+Victor Moraes Cardoso - Prontuário: 1620436
+
+*/
+
 import java.util.Scanner;
 
 public class Numero1 extends SortsBasicos {

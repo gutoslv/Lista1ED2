@@ -1,6 +1,12 @@
 package com.exercicios;
 
-import java.util.Scanner;
+/* Feito por
+
+Augusto Cesar da Silva - Prontuário: 1620011
+Victor Moraes Cardoso - Prontuário: 1620436
+
+*/
+
 
 class SortsBasicos {
   //Inicio Numero 1
