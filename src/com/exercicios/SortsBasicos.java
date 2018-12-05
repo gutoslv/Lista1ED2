@@ -194,18 +194,18 @@ class SortsBasicos {
   }
 
   static void buscaSeq(int codigoprod, int[] codigo, String[] descricao, float[] preco) {
-    int indice = -1, cont = 0;
+    int index = -1, cont = 0;
     for (int i = 0; i < codigo.length; i++) {
       if (codigo[i] == codigoprod) {
         cont++;
-        indice = i;
+        index = i;
         break;
       }
     }
-    if (indice < 0) {
+    if (index < 0) {
       System.out.println("Codigo nao encontrado");
     } else {
-      System.out.println("Busca Sequencial encontrou o codigo com as informacoes: " + codigo[indice] + descricao[indice] + preco[indice]);
+      System.out.println("Busca Sequencial encontrou o codigo com as informacoes: " + codigo[index] + descricao[index] + preco[index]);
       System.out.println("Busca sequencial foi executada " + cont + "vezes ");
     }
   } // fim exercicio 3
@@ -295,4 +295,75 @@ class SortsBasicos {
     }
   }
   // fim exercicio 4
+
+  //inicio exercicio 5
+
+  static void ordernaFinalmente(int[] nums) {
+    int i = 0, j, aux;
+    boolean troca = true;
+
+    while (i < nums.length && troca) {
+      troca = false;
+
+      for (j = 0; j < (nums.length - 1); j++) {
+        if (nums[j] > nums[j + 1]) {
+          troca = true;
+          aux = nums[j];
+          nums[j] = nums[j + 1];
+          nums[j + 1] = aux;
+        }
+      }
+      i++;
+    }
+    System.out.println("Ordenado:");
+    for (i = 0; i < nums.length; i++) {
+      System.out.println(" " + nums[i]);
+    }
+  }
+
+  static void binaria5(int numdesejado, int[] nums) {
+    int inicio = 0, fim = (nums.length - 1), meio, posencontrado = -1;
+    String par = "par";
+
+    while (inicio <= fim) {
+      meio = (inicio + fim) / 2;
+      if (posencontrado == nums[meio]) {
+        posencontrado = meio;
+      }
+      if (posencontrado < nums[meio]) {
+        fim = meio - 1;
+      } else {
+        inicio = meio + 1;
+      }
+    }
+    if (posencontrado % 2 != 0) {
+      par = "impar";
+    }
+
+    if (posencontrado < 0) {
+      System.out.println("Numero nao esta na lista");
+    } else {
+      System.out.println("Busca binaria encotrou o numero na posicao: " + posencontrado + " e o numero e': " + par);
+    }
+  }
+
+  static void sequencial5(int numdesejado, int[] nums) {
+    int index = -1;
+    String par = "par";
+
+    for (int i = 0; i < nums.length; i++) {
+      if (nums[i] == numdesejado) {
+        index = i;
+      }
+    }
+    if (index % 2 != 0) {
+      par = "impar";
+
+      if (index == -1) {
+        System.out.println("Numero nao esta na lista");
+      } else {
+        System.out.println("Busca sequencial encontro o numero na posicao: " + index + " e o numero e' " + par);
+      }
+    }
+  }// fim do exercicio 5
 }
