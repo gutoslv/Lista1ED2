@@ -5,7 +5,7 @@ import java.util.Scanner;
 class SortsBasicos {
   //Inicio Numero 1
   static void bubbleCresc(String[] nomes, int[] salarios) {
-    int i =0 , j, aux;
+    int i = 0, j, aux;
     boolean troca = true;
     String temp;
 
@@ -126,7 +126,7 @@ class SortsBasicos {
       if (numeros[i] == maior) {
         quantmaior++;
       }
-      if (numeros[i] == menor){
+      if (numeros[i] == menor) {
         quantmenor++;
       }
     }
@@ -165,7 +165,7 @@ class SortsBasicos {
     }
     System.out.println("Ordenado por codigo: ");
     for (k = 0; k < codigo.length; k++) {
-      System.out.println(" " + codigo[k] + " " + descricao[k] + " " + preco [k]);
+      System.out.println(" " + codigo[k] + " " + descricao[k] + " " + preco[k]);
     }
   }
 
@@ -185,7 +185,7 @@ class SortsBasicos {
     }
 
     if (posencontrado > -1) {
-      System.out.println("Busca Binaria encontrou o codigo com as informacoes: " + codigo[posencontrado] + " "  + descricao[posencontrado] + " " + preco[posencontrado]);
+      System.out.println("Busca Binaria encontrou o codigo com as informacoes: " + codigo[posencontrado] + " " + descricao[posencontrado] + " " + preco[posencontrado]);
       System.out.println("Busca Binaria foi executada: " + cont + " vezes");
     } else {
       System.out.println("Codigo nao encontrado");
@@ -209,4 +209,90 @@ class SortsBasicos {
       System.out.println("Busca sequencial foi executada " + cont + "vezes ");
     }
   } // fim exercicio 3
+
+  //inicio Exercicio 4
+  static void ordenaMedia(float[] media, String[] nome) {
+    int i = 0, j;
+    boolean troca = true;
+    String auxnome;
+    float auxmed;
+
+    while (i < media.length && troca) {
+      troca = false;
+
+      for (j = 0; j < (media.length - 1); j++) {
+        if (media[j] > media[j + 1]) {
+          troca = true;
+          auxmed = media[j];
+          media[j] = media[j + 1];
+          media[j + 1] = auxmed;
+
+          auxnome = nome[j];
+          nome[j] = nome[j + 1];
+          nome[j + 1] = auxnome;
+        }
+      }
+      i++;
+    }
+    System.out.println("Ordenado por media:");
+    for (i = 0; i < media.length; i++) {
+      System.out.println("Nome: " + nome[i] + " Media: " + media[i]);
+    }
+  }
+
+  static void ordernaNota1(float[] nota1, String[] nome) {
+    int i = 0, j;
+    boolean troca = true;
+    String auxnome;
+    float auxnota;
+
+    while (i < nota1.length && troca) {
+      troca = false;
+
+      for (j = 0; j < (nota1.length - 1); j++) {
+        if (nota1[j] > nota1[j + 1]) {
+          troca = true;
+          auxnota = nota1[j];
+          nota1[j] = nota1[j + 1];
+          nota1[j + 1] = auxnota;
+
+          auxnome = nome[j];
+          nome[j] = nome[j + 1];
+          nome[j + 1] = auxnome;
+        }
+      }
+      i++;
+    }
+
+    System.out.println("Ordenado por Nota 1: ");
+    for (i = 0; i < nota1.length; i++) {
+      System.out.println("Nome: " + nome[i] + " Nota: " + nota1[i]);
+    }
+  }
+
+  static void reprovadoAlfabetica(String[] nome) {
+    int i = 0, j;
+    boolean troca = true;
+    String auxnome;
+
+    while (i < nome.length && troca) {
+      for (j = 0; j < 3 - 1; j++) {
+        int compara = nome[j].compareTo(nome[j + 1]);
+
+        if (compara > 0) {
+          troca = false;
+
+          auxnome = nome[j];
+          nome[j] = nome[j + 1];
+          nome[j + 1] = auxnome;
+        }
+      }
+      i++;
+    }
+    System.out.println("Ordem alfabetica: ");
+    for (i = 0; i < nome.length; i++) {
+      System.out.println("Aluno: " + nome[i]);
+    }
+  }
+  // fim exercicio 4
 }
